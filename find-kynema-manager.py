@@ -30,30 +30,23 @@ def is_cee(hostname):
 
 
 def is_cts_broadwell(hostname):
-    print("Checking cts-broadwell",hostname)
     known_hosts = ["ghost","eclipse"]
     for k in known_hosts:
         if k in hostname:
-            print('Match found')
             return True
     return False
 
 def is_cts_skylake(hostname):
-    print("Checking cts-skylake",hostname)
     known_hosts = ["attaway"]
     for k in known_hosts:
         if k in hostname:
-            print('Match found')
             return True
     return False
 
 def is_cts_sapphire(hostname):
-    print("Checking cts-sapphire",hostname)
     known_hosts = ["flight"]
     for k in known_hosts:
-        print("Known host",k)
         if k in hostname:
-            print('Match found')
             return True
     return False
 
@@ -117,7 +110,6 @@ machine_list = {
 
 
 def detector(name):
-    print('Running detector')
     for machine_name, data in machine_list.items():
         """
         Since we don't expect uniform environments on all machines
