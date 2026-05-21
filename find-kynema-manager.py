@@ -30,23 +30,30 @@ def is_cee(hostname):
 
 
 def is_cts_broadwell(hostname):
-    known_hosts = ("ghost","eclipse")
+    print("Checking cts-broadwell",hostname)
+    known_hosts = ["ghost","eclipse"]
     for k in known_hosts:
         if k in hostname:
+            print('Match found')
             return True
     return False
 
 def is_cts_skylake(hostname):
-    known_hosts = ("attaway")
+    print("Checking cts-skylake",hostname)
+    known_hosts = ["attaway"]
     for k in known_hosts:
         if k in hostname:
+            print('Match found')
             return True
     return False
 
 def is_cts_sapphire(hostname):
-    known_hosts = ("flight")
+    print("Checking cts-sapphire",hostname)
+    known_hosts = ["flight"]
     for k in known_hosts:
+        print("Known host",k)
         if k in hostname:
+            print('Match found')
             return True
     return False
 
