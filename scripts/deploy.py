@@ -87,8 +87,10 @@ def configure_env(args, env_name):
                ))
         if args.daily:
             config("add", "modules:default:tcl:all:suffixes:all:daily")
+            config("add", "modules:default:arch_folder:False)
         else:
             config("add", "modules:default:tcl:all:suffixes:all:'{}'".format(e.name))
+            config("add", "modules:default:arch_folder:False)
 
         if args.regression_tests:
             for pkg in args.regression_tests:
