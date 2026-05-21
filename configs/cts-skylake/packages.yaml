@@ -38,8 +38,6 @@ packages:
     externals:
     - spec: python@3.12.4
       prefix: /projects/aue/hpc/deploy/f9a38d2c/linux-rhel8-x86_64/gcc-12.3.0/python-3.12.4-dln57gx
-      modules:
-      - aue/python/3.12.4
     buildable: false
   boost:
     require: "@1.80.0"
@@ -76,7 +74,7 @@ packages:
   all:
     prefer:
       - "build_type=Release"
-      - "target=skylake-avx512"
+      - "target=skylake_avx512"
     conflict:
       - "%gcc"
     permissions:
