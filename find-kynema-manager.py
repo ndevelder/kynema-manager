@@ -29,14 +29,21 @@ def is_cee(hostname):
     return detected
 
 
-def is_cts_1(hostname):
-    known_hosts = ("skybridge", "ghost", "attaway", "chama")
+def is_cts_broadwell(hostname):
+    known_hosts = ("ghost","eclipse")
     for k in known_hosts:
         if k in hostname:
             return True
     return False
 
-def is_cts_2(hostname):
+def is_cts_skylake(hostname):
+    known_hosts = ("attaway")
+    for k in known_hosts:
+        if k in hostname:
+            return True
+    return False
+
+def is_cts_sapphire(hostname):
     known_hosts = ("flight")
     for k in known_hosts:
         if k in hostname:
@@ -65,8 +72,9 @@ match
 machine_list = {
     # SNL
     "cee": MachineData(lambda: is_cee(socket.gethostname()), "cee.snl.gov"),
-    "cts-1": MachineData(lambda: is_cts_1(socket.gethostname()), "cts-1.snl.gov"),
-    "cts-2": MachineData(lambda: is_cts_2(socket.gethostname()), "cts-2.snl.gov"),
+    "cts-broadwell": MachineData(lambda: is_cts_broadwell(socket.gethostname()), "cts-broadwell.snl.gov"),
+    "cts-skylake": MachineData(lambda: is_cts_skylake(socket.gethostname()), "cts-skylake.snl.gov"),
+    "cts-sapphire": MachineData(lambda: is_cts_sapphire(socket.gethostname()), "cts-sapphire.snl.gov"),
     # NREL
     "kestrel-cpu": MachineData(
         lambda: (os.environ["NREL_CLUSTER"] == "kestrel" and os.environ["CRAY_CPU_TARGET"] == "x86-spr"), "kestrel-cpu.hpc.nrel.gov"
