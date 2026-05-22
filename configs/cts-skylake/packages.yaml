@@ -57,7 +57,7 @@ packages:
     require: "~fortran"
   kynema-sgf:
     require: "@main"
-    variants: +tiny_profile
+    variants: +tiny_profile+hypre
   kynema-ugf:
     require: "@main"
   kynema-driver:
