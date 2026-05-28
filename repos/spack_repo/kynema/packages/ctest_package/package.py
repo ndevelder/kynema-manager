@@ -88,7 +88,7 @@ class CTestBuilder(CMakeBuilder):
             with fs.working_dir(self.build_directory):
                  build_env = os.environ.copy()
                  output = ctest(*self.build_args, env=build_env, output=str.split, error=str.split).split("\n")
-                 errors, warnings = spack.util.log_parse.parse_log_events(output)
+                 errors, warnings, _ = spack.util.log_parse.parse_log_events(output)
                  if len(errors) > 0:
                      errs = [str(e) for e in errors]
                      tty.warn(f"Errors: {errs}")
